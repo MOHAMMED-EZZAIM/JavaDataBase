@@ -1,6 +1,7 @@
-package Pack7;
+package Pack8;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,14 +14,11 @@ public class Main {
 	public static void main(String[] args) throws SQLException  {
 
 		try {
-			Connection con=DataBase.ConnDB();
-			Statement stat=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			stat.setMaxRows(4);
-			//maximum de rows 4 rows
-			ResultSet result=stat.executeQuery("select * from employe ");
-			System.out.println("Connected!");
-			System.out.println("table employe:");		
-			ClassRead.readData(result);
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javadat_mohammed_ez", "root", "");
+			System.out.println("Connected");
+			Statement s=con.createStatement();
+			String sql=" CREATE TABLE MOHAMMED(ID INT,NOM VARCHAR(255))";
+			int res=s.executeUpdate(sql);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			System.out.println(e.getErrorCode());
