@@ -1,8 +1,11 @@
-package pack2;
+package Pack4;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-public class Database {
+
+public class DataBase {
+
 	private static  String Condatabase1="jdbc:mysql://localhost:3306/javadata_mohammed";
 	private static  String Condatabase2="jdbc:mysql://localhost:3306/javadat_mohammed_ez";
 	private static  String username="root";
@@ -17,20 +20,4 @@ public class Database {
 			return null;
 		}
 }
-	
-	
-	
-	
-	
-	
-	
-	
-//		switch(str) {
-//		case "data1": return DriverManager.getConnection(Condatabase1, username, password);
-//		case "data2": return DriverManager.getConnection(Condatabase1, username, password);
-//		default : return null;
-//}
-//		
-//	}
-	
 }
